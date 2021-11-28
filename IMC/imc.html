@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang=“pt-br”>
+	<head>
+		<title>Calculo IMC</title>
+		<meta charset=“UTF-8”>
+		<script>
+			function calculaImc(){
+				var altura = document.imcForm.alturaForm.value;
+				var peso = document.imcForm.pesoForm.value;
+				
+				if((altura == 0)||(peso == 0)){
+					alert("Digite o peso ou altura");
+				}else{
+					var alt = altura.replace(",", ".");
+					var pes = peso.replace(",", ".");
+				
+					var imc=(pes/Math.pow(alt,2)).toFixed(1);
+					alert("O IMC é: " + imc);
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+	
+		<form name="imcForm">
+			<label>Altura</label><br>
+			<input type="text" name="alturaForm" value="0"><br><br>
+			<label>Peso</label><br>
+			<input type="text" name="pesoForm" value="0"><br><br>
+			<input type="button" value="Calcular" onclick="calculaImc()">
+		</form>
+		<br>
+		<table border="1" cellspacing="0">
+			<tr>
+				<th width="200">Condição</th><th width="100">Mulheres</th><th width="100">Homens</th>
+			</tr>
+			<tr>
+				<td>Abaixo do peso</td><td> < 19,1 </td><td> < 20,7 </td>
+			</tr>
+			<tr>
+				<td>Normal</td><td> 19,1 - 25,8 </td><td> 20,7 - 26,4 </td>
+			</tr>
+			<tr>
+				<td>Pouco acima do peso</td><td> 25,9 - 27,3 </td><td> 26,5 - 27,8 </td>
+			</tr>
+			<tr>
+				<td>Acima do peso</td><td> 27,4 - 32,3 </td><td> 27,9 - 31,1 </td>
+			</tr>
+			<tr>
+				<td>Obeso</td><td> > 32,3  </td><td> > 31,1 </td>
+			</tr>
+		</table>
+
+	</body>
+</html>
